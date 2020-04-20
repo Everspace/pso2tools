@@ -1,0 +1,45 @@
+- name:
+    na: Single Stack Pancake
+    jp: ~
+    jpna: ~
+  type: pancake
+  image: ~
+  rarity: 7
+  stats:
+    element: 10
+  sources:
+    - Pet Supplies Shop - [Synthesizer x20]
+
+- name:
+    na: Double Stack Pancakes
+    jp: ~
+    jpna: ~
+  type: pancake
+  image: ~
+  rarity: 7
+  stats:
+    element: 20
+  sources:
+    - Pietro client order - Wanda
+    - >-
+      Pet Supplies Shop -
+      [Single Stack Pancake +3 x2,
+      Synthesizer x120]
+
+- name:
+    na: Triple Stack Pancakes
+    jp: ~
+    jpna: ~
+  type: pancake
+  image: ~
+  rarity: 7
+  stats:
+    element: 30
+  sources:
+    - >-
+      Pet Supplies Shop -
+      [Double Stack Pancake +3 x5,
+      Synthesizer x250]
+    - >-
+      Pet Supplies Shop -
+      [Element Enhancement +5% x2]

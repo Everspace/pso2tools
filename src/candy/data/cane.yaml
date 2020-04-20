@@ -1,0 +1,111 @@
+- name:
+    na: Spirit Cane
+    jp: スピリタアメ
+    jpna: Spirit Candy?
+  type: cane
+  size: {width: 1, height: 4}
+  image: ~ # red/white vcane
+  rarity: 6
+  sources:
+    - Random drop from any enemy
+  stats:
+    pp: 5
+
+- name:
+    na: Impact Ward Cane
+    jp: ブロウレジストアメ
+    jpna: Blow Resist Candy?
+  type: cane
+  size: {width: 4, height: 1}
+  image: ~ # White/purple/yellow hcane
+  rarity: 6
+  sources:
+    - Random drop from any enemy
+  stats:
+    melResist: 5
+
+- name:
+    na: Projectile Ward Cane
+    jp: ブロウレジストアメ
+    jpna: Shot Resist Candy?
+  type: cane
+  size: {width: 4, height: 1}
+  image: ~ # purple/blue/green/yellow/ hcane
+  rarity: 6
+  sources:
+    - Random drop from any enemy
+  stats:
+    rngResist: 5
+
+- name:
+    na: Technique Ward Cane
+    jp: マインドレジストアメ
+    jpna: Mind Resist Candy?
+  type: cane
+  size: {width: 4, height: 1}
+  image: ~ # orange/white/blue/white hcane
+  rarity: 6
+  sources:
+    - Random drop from any enemy
+  stats:
+    tecResist: 5
+
+- name:
+    na: Vinculum Spirit Cane
+    jp: ウィンスピアメ
+    jpna: Winspearme Candy?
+  type: cane
+  size: {width: 4, height: 1}
+  image: ~ # purple/blue/green/yellow/ hcane
+  sources:
+    - Pietro client order - Jinga
+  stats:
+    mel: 20
+    rng: 20
+    tec: 20
+    pp: 3
+
+- name:
+    na: Mastery Cane
+    jp: アビリティアメ
+    jpna: Ability Candy?
+  type: cane
+  size: {width: 4, height: 1}
+  image: ~ # purple/blue/green/yellow/ hcane
+  sources:
+    - Pet Supplies Shop - [Grinder x50]
+  stats:
+    mel: 5
+    melDefense: 5
+    rng: 5
+    rngDefense: 5
+    tec: 5
+    tecDefense: 5
+    pp: 3
+
+
+- name:
+    na: Sovereign Cane
+    jp: オールレジストアメ
+    jpna: All-Resist Candy?
+  type: cane
+  size: {width: 1, height: 4}
+  sources:
+    - Pietro client order - Redran
+  image: ~ # yellow/white vcane
+  type:
+    melResist: 3
+    rngResist: 3
+    tecResist: 3
+
+- name:
+    na: Critical Cane
+    jp: クリティカルアメ
+    jpna: Critical Candy?
+  type: cane
+  size: {width: 1, height: 4}
+  sources:
+    - Pietro client order - Popple
+  image: ~ # yellow/white vcane
+  stats:
+    crit: 7

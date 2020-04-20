@@ -1,0 +1,101 @@
+- name:
+    na: Fire Candy
+    jp: ~
+    jpna: Fire Ranmue?
+  type: star
+  image: ~ # star
+  size: {width: 2, height: 1}
+  rarity: 3
+  stats:
+    effects:
+      - Change pet attack element to Fire
+  sources:
+    - >-
+      Pet Supplies Shop -
+      [Elemental Transition (Fire) x1,
+      Synthesizer x100]
+
+- name:
+    na: Ice Candy
+    jp: ~
+    jpna: Ice Ranmue?
+  type: star
+  image: ~ # star
+  size: {width: 2, height: 1}
+  rarity: 3
+  stats:
+    effects:
+      - Change pet attack element to Ice
+  sources:
+    - >-
+      Pet Supplies Shop -
+      [Elemental Transition (Ice) x1,
+      Synthesizer x100]
+
+- name:
+    na: Lightning Candy
+    jp: ~
+    jpna: Lightning Ranmue?
+  type: star
+  image: ~ # star
+  size: {width: 2, height: 1}
+  rarity: 3
+  stats:
+    effects:
+      - Change pet attack element to Lightning
+  sources:
+    - >-
+      Pet Supplies Shop -
+      [Elemental Transition (Lightning) x1,
+      Synthesizer x100]
+
+- name:
+    na: Wind Candy
+    jp: ~
+    jpna: Wind Ranmue?
+  type: star
+  image: ~ # star
+  size: {width: 2, height: 1}
+  rarity: 3
+  stats:
+    effects:
+      - Change pet attack element to Wind
+  sources:
+    - >-
+      Pet Supplies Shop -
+      [Elemental Transition (Wind) x1,
+      Synthesizer x100]
+
+- name:
+    na: Light Candy
+    jp: ~
+    jpna: Light Ranmue?
+  type: star
+  image: ~ # star
+  size: {width: 2, height: 1}
+  rarity: 3
+  stats:
+    effects:
+      - Change pet attack element to Light
+  sources:
+    - >-
+      Pet Supplies Shop -
+      [Elemental Transition (Light) x1,
+      Synthesizer x100]
+
+- name:
+    na: Dark Candy
+    jp: ~
+    jpna: Dark Ranmue?
+  type: star
+  image: ~ # star
+  size: {width: 2, height: 1}
+  rarity: 3
+  stats:
+    effects:
+      - Change pet attack element to Dark
+  sources:
+    - >-
+      Pet Supplies Shop -
+      [Elemental Transition (Dark) x1,
+      Synthesizer x100]

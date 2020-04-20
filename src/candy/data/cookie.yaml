@@ -1,0 +1,20 @@
+- name:
+    na: Stamina Cookie
+  type: cookie
+  image: CheckerboxCookie.png
+  sources:
+    - Common drop
+  stats:
+    hp: 150
+
+- name:
+    na: Stamina Spirit Cookie
+    jp:
+  type: cookie
+  image: ~ # CheckerboxCookie.png
+  rarity: 9
+  sources:
+    - Pietro client order - Trim
+  stats:
+    hp: 60
+    pp: 3

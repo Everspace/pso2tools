@@ -1,0 +1,39 @@
+- name:
+    na: Toughness Sandwich
+    jp: ボディサンド
+    jpna: Body Sandwich?
+  type: sandwich
+  image: ~ # Sandwich
+  size: {width: 2, height: 1}
+  rarity: 3
+  sources:
+    - Common drop
+  stats:
+    melDefense: 100
+
+- name:
+    na: Reflex Sandwich
+    jp: リアクトサンド
+    jpna: Reaction Sandwich?
+  type: sandwich
+  image: ~ # Sandwich
+  size: {width: 2, height: 1}
+  rarity: 3
+  sources:
+    - Common drop
+  stats:
+    rngDefense: 100
+
+- name:
+    na: Genius Sandwich
+    jp: マインドサンド
+    jpna: Mind Sandwich?
+  type: sandwich
+  image: ~ # Sandwich
+  size: {width: 2, height: 1}
+  rarity: 3
+  sources:
+    - Common drop
+  stats:
+    tecDefense: 100
+

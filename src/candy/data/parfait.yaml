@@ -1,0 +1,13 @@
+- name:
+    na: Satisfying Parfait
+    jp: たっぷりパフェ
+    jpna: ~ # Plenty of Parfait
+  type: parfait
+  image: ~ # Caramel, waffle cone
+  size: {width: 2, height: 2}
+  rarity: 13
+  sources:
+    - Pietro client order - Synchro
+  stats:
+    effects:
+      - 5% more damage while at 60% hp or higher
