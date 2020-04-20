@@ -1,0 +1,12 @@
+- name:
+    na: Stamina Gummy
+    jp: ~
+    jpna: ~
+  type: gummy
+  image: JellybeanOrange.png
+  rarity: 3
+  sources:
+    - Pet Supplies Shop (Grinder x10)
+    - Common drop
+  stats:
+    hp: 10

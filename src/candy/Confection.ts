@@ -76,22 +76,22 @@ export interface ConfectionDefinition {
   stats: ConfectionStatistics
 }
 
-export const confectionData = yaml("./CandyData.yaml") as {
-  types: ConfectionTypeData
-}
+export const confectionData = yaml("./data/_types.yaml") as ConfectionTypeData
 
 const cane: ConfectionDefinition[] = yaml("./data/cane.yaml")
 const cookie: ConfectionDefinition[] = yaml("./data/cookie.yaml")
+const gummy: ConfectionDefinition[] = yaml("./data/gummy.yaml")
 const pancake: ConfectionDefinition[] = yaml("./data/pancake.yaml")
 const parfait: ConfectionDefinition[] = yaml("./data/parfait.yaml")
 const sandwich: ConfectionDefinition[] = yaml("./data/sandwich.yaml")
 const star: ConfectionDefinition[] = yaml("./data/star.yaml")
 
-type ConfictionDictionary = Record<string, ConfectionDefinition>
+export type ConfictionDictionary = Record<string, ConfectionDefinition>
 
 export const confectionDefinitions = concat(
   cane,
   cookie,
+  gummy,
   pancake,
   parfait,
   sandwich,
