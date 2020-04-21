@@ -93,7 +93,7 @@
   sources:
     - Pietro client order - Redran
   image: ~ # yellow/white vcane
-  type:
+  stats:
     melResist: 3
     rngResist: 3
     tecResist: 3
