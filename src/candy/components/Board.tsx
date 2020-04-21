@@ -9,7 +9,7 @@ import BoardSquare, { BoardSquareInfo } from "./BoardSquare"
 import { debounce } from "lodash"
 import { BoardDefinition } from "../CandyBoxContext"
 
-const decodeBoard = (boardData: BoardData): BoardSquareInfo[] => {
+const decodeBoard = (boardData: BoardDefinition): BoardSquareInfo[] => {
   const allRows = boardData.board.split("\n")
   let row = 0
   let column = 0
@@ -29,7 +29,7 @@ const decodeBoard = (boardData: BoardData): BoardSquareInfo[] => {
           break
         default:
           throw new Error(
-            `Bad SquareType "${type}" in ${boardData.name} x:${column + 1} y:${
+            `Bad SquareType "${type}" in ${boardData.petID} x:${column + 1} y:${
               row + 1
             }`,
           )
@@ -48,7 +48,9 @@ type BoardProps = {
 }
 
 const Grid = Styled.div({
-  display: "grid",
+  display: "inline-grid",
+  margin: "auto",
+  maxWidth: "max-content",
   gridTemplateColumns: "repeat(8, 50px)",
   gridTemplateRows: "repeat(8, 50px)",
 })
@@ -115,8 +117,7 @@ const Board = ({ boardDefinition }: BoardProps) => {
   // })
 
   return (
-    <div>
-      {/* <Grid onClick=passthrough>{theItems}</Grid> */}
+    <div css={{ display: "grid", alignItems: "center" }}>
       <Grid>
         {decodeBoard(boardDefinition).map((info) => (
           <BoardSquare

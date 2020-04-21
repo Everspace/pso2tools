@@ -2,20 +2,9 @@
 import { jsx } from "@emotion/core"
 import Board from "./components/Board"
 import yaml from "yaml.macro"
-import JellyBean from "./components/JellyBean"
-
-type BoardDefinition = {
-  /**
-   * Pet's name
-   */
-  name: string
-  /**
-   * The 8x8 board
-   * newline delineated, and then with the appropate keys for
-   * caramels, paper cubes, empty spots, and jelly cubes
-   */
-  board: string
-}
+import { candyDefinitions } from "./Candy"
+import CandyBoxMenuItem from "./components/CandyBoxMenuItem"
+import { BoardDefinition } from "./CandyBoxContext"
 
 const [Synchro] = yaml<BoardDefinition[]>("./Boards.yaml")
 
@@ -25,20 +14,35 @@ const CandyBox = () => {
   return (
     <div
       css={{
-        display: "flex",
-        "& > *": {
-          display: "flex",
-        },
+        display: "grid",
+        gridTemplateRows: "1fr",
+        gridTemplateColumns: "2fr 1fr",
+        gridTemplateAreas: `"board list"`,
+        maxHeight: "100%",
       }}
     >
-      <Board boardDefinition={Synchro} />
-      <div>
-        <ul>
-          <li>
-            <JellyBean />
-          </li>
-        </ul>
-      </div>
+      <Board css={{ gridArea: "board" }} boardDefinition={Synchro} />
+      <ul
+        css={{
+          gridArea: "list",
+          overflowY: "auto",
+          height: "100%",
+          maxHeight: "100%",
+        }}
+      >
+        {Object.values(candyDefinitions)
+          .sort((candyA, candyB) => {
+            if (candyA.type === candyB.type) {
+              return candyA.name.na.localeCompare(candyB.name.na)
+            }
+            return candyA.type.localeCompare(candyB.type)
+          })
+          .map((candy) => (
+            <li key={candy.name.na}>
+              <CandyBoxMenuItem candy={candy} />
+            </li>
+          ))}
+      </ul>
     </div>
   )
 }
