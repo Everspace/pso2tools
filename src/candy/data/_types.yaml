@@ -1,27 +1,63 @@
 cane:
+  name:
+    na: cane
+    jp: ~
+    najp: cane
   defaultSize: {width: 4, height: 1}
   icon: 🍭
 cookie:
+  name:
+    na: cookie
+    jp: ~
+    najp: cookie
   defaultSize: {width: 1, height: 2}
   icon: 🍪
 crepe:
+  name:
+    na: crepe
+    jp: ~
+    najp: crepe
   defaultSize: {width: 2, height: 2}
   icon: 🥖
 gummy:
+  name:
+    na: gummy
+    jp: ~
+    najp: gummy
   defaultSize: {width: 1, height: 1}
   icon: 🍬
 pancake:
+  name:
+    na: pancake
+    jp: ~
+    najp: pancake
   defaultSize: {width: 2, height: 2}
   icon: 🥞
 parfait:
+  name:
+    na: parfait
+    jp: ~
+    najp: parfait
   defaultSize: {width: 2, height: 2}
   icon: 🍨
 roll:
+  name:
+    na: roll
+    jp: ~
+    najp: roll
   defaultSize: {width: 2, height: 2}
   icon: 🍰
 sandwich:
+  name:
+    na: sandwich
+    jp: ~
+    najp: sandwich
   defaultSize: {width: 2, height: 1}
   icon: 🥪
 star:
+  name:
+    na: star
+    jp: ~
+    najp: ranmue
   defaultSize: {width: 1, height: 1}
   icon: ⭐
