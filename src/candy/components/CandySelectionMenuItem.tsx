@@ -3,15 +3,18 @@ import { jsx } from "@emotion/core"
 import { useDrag } from "react-dnd"
 import ItemTypes from "./ItemTypes"
 import { Coordinate } from "./Board"
-import { CandyDefinition, getCandyDimensions } from "../Candy"
+import { CandyDefinition, getCandyDimensions, candyTypeData } from "../Candy"
 import CandyIcon from "./CandyIcon"
+import { useMemo } from "react"
 
-type CandyBoxMenuItemProps = {
+type CandyBoxSelectionMenuItemProps = {
   position?: Coordinate
   candy: CandyDefinition
 }
 
-const CandyBoxMenuItem = ({ candy }: CandyBoxMenuItemProps) => {
+const CandyBoxSelectionMenuItem = ({
+  candy,
+}: CandyBoxSelectionMenuItemProps) => {
   const [info, drag] = useDrag({
     item: {
       type: ItemTypes.CANDY,
@@ -23,6 +26,8 @@ const CandyBoxMenuItem = ({ candy }: CandyBoxMenuItemProps) => {
       isDragging: monitor.isDragging(),
     }),
   })
+  const css = candyTypeData[candy.type].css
+  const { height, width } = useMemo(() => getCandyDimensions(candy), [candy])
 
   return (
     <div
@@ -34,14 +39,19 @@ const CandyBoxMenuItem = ({ candy }: CandyBoxMenuItemProps) => {
       <div
         ref={drag}
         css={{
+          ...css,
+          display: "inline-block",
+          border: "1px solid black",
+          borderRadius: "0.5em",
+          padding: "0.5em",
           fontsize: 25,
           fontWeight: "bold",
           cursor: "move",
         }}
       >
-        <CandyIcon type={candy.type} />
-        {candy.name.na}
+        <CandyIcon type={candy.type} /> {candy.name.na}
       </div>
+      <div>Size: {`${width}x${height}`}</div>
       <div>Stats: {JSON.stringify(candy.stats)}</div>
       <div>
         Sources:
@@ -54,4 +64,4 @@ const CandyBoxMenuItem = ({ candy }: CandyBoxMenuItemProps) => {
     </div>
   )
 }
-export default CandyBoxMenuItem
+export default CandyBoxSelectionMenuItem
