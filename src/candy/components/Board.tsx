@@ -1,18 +1,25 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/core"
 import Styled from "@emotion/styled"
-import Square, { SquareType } from "./Square"
-import ItemTypes from "./ItemTypes"
-import { useDrop, useDrag } from "react-dnd"
+import { SquareType } from "./Square"
 import { useState, useMemo, useReducer, useCallback } from "react"
 import BoardSquare, { BoardSquareInfo } from "./BoardSquare"
 import { debounce } from "lodash"
 import { BoardDefinition } from "../CandyBoxContext"
+import styled from "@emotion/styled"
+import {
+  CandyType,
+  getCandyDimensions,
+  candyDefinitions,
+  candyTypeData,
+} from "../Candy"
+import CandyIcon from "./CandyIcon"
 
 const decodeBoard = (boardData: BoardDefinition): BoardSquareInfo[] => {
   const allRows = boardData.board.split("\n")
-  let row = 0
-  let column = 0
+  // Board starts at 1 so it plays nice with grid
+  let row = 1
+  let column = 1
   const container: BoardSquareInfo[] = []
   for (const letterString of allRows) {
     for (const type of letterString) {
@@ -29,13 +36,15 @@ const decodeBoard = (boardData: BoardDefinition): BoardSquareInfo[] => {
           break
         default:
           throw new Error(
-            `Bad SquareType "${type}" in ${boardData.petID} x:${column + 1} y:${
-              row + 1
-            }`,
+            `Bad SquareType "${type}" in ${boardData.petID} x:${column} y:${row}`,
           )
       }
       column += 1
-      column = column % 8
+      // if we're at 8 and went over to 9
+      // Start at 1 again
+      if (column % 9 === 0) {
+        column = 1
+      }
     }
     row += 1
   }
@@ -47,12 +56,15 @@ type BoardProps = {
   boardDefinition: BoardDefinition
 }
 
+const gridUnit = 75 //px
+
 const Grid = Styled.div({
-  display: "inline-grid",
+  display: "grid",
   margin: "auto",
-  maxWidth: "max-content",
-  gridTemplateColumns: "repeat(8, 50px)",
-  gridTemplateRows: "repeat(8, 50px)",
+  width: gridUnit * 8,
+  height: gridUnit * 8,
+  gridTemplateColumns: `repeat(8, ${gridUnit}px)`,
+  gridTemplateRows: `repeat(8, ${gridUnit}px)`,
 })
 
 type CandyInfo = {
@@ -60,8 +72,52 @@ type CandyInfo = {
   position: Coordinate
 }
 
-export type Coordinate = { row: number; column: number }
+const GridContainer = styled.div({
+  /**
+   * I would preferably like to specify that in CandyBox,
+   * but it only works here for reasons I don't understand.
+   */
+  gridArea: "board",
+  display: "grid",
+  alignItems: "center",
+  gridTemplateAreas: `"board"`,
+})
 
+const CandyOverlay = ({ row, column, id }: Coordinate & { id: string }) => {
+  const candy = candyDefinitions[id]
+  const css = candyTypeData[candy.type].css
+  const { width, height } = getCandyDimensions(candy)
+
+  let backgroundColor = "white"
+  let color = "inherit"
+
+  //[row, column, row + width, column + height]
+  return (
+    <div
+      draggable={false}
+      css={{
+        ...css,
+        zIndex: 1, // drawing over squares
+        borderRadius: "1.5em",
+        border: "1px solid black",
+        padding: "0.25em",
+        gridColumn: `${column} / ${column + width}`,
+        gridRow: `${row} /${row + height}`,
+
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        textAlign: "center",
+      }}
+    >
+      <span css={{ display: "inline-block" }}>
+        <CandyIcon type={candy.type} /> {candy.name.na}
+      </span>
+    </div>
+  )
+}
+
+export type Coordinate = { row: number; column: number }
 const Board = ({ boardDefinition }: BoardProps) => {
   const squares = useMemo(() => decodeBoard(boardDefinition), [boardDefinition])
 
@@ -116,9 +172,41 @@ const Board = ({ boardDefinition }: BoardProps) => {
   //   }),
   // })
 
+  // Sorting by row then column will be fine for serialization
+  const candies = [
+    { row: 1, column: 2, id: "Satisfying Parfait" },
+    { row: 1, column: 5, id: "Vinculum Spirit Cane" },
+    { row: 2, column: 1, id: "Sovereign Cane" },
+    { row: 2, column: 1, id: "Sovereign Cane" },
+    { row: 2, column: 5, id: "Double Stack Pancakes" },
+    { row: 2, column: 7, id: "Triple Stack Pancakes" },
+    { row: 3, column: 2, id: "Stamina Gummy" },
+    { row: 3, column: 4, id: "Stamina Gummy" },
+    // { row: 4, column: 3, id: "some Roll" },
+    { row: 4, column: 5, id: "Stamina Gummy" },
+    { row: 4, column: 7, id: "Stamina Gummy" },
+    { row: 4, column: 8, id: "Stamina Spirit Cookie" },
+    // { row: 6, column: 1, id: "some Roll" },
+    { row: 6, column: 4, id: "Toughness Sandwich" },
+    { row: 6, column: 7, id: "Satisfying Parfait" },
+
+    { row: 7, column: 3, id: "Stamina Spirit Cookie" },
+    { row: 7, column: 6, id: "Stamina Spirit Cookie" },
+
+    { row: 8, column: 1, id: "Toughness Sandwich" },
+    { row: 8, column: 5, id: "Stamina Gummy" },
+    { row: 8, column: 7, id: "Stamina Gummy" },
+  ]
+
+  // Be careful of adding divs above or below the grid due to funk
+  // with the drag and drop
+
   return (
-    <div css={{ display: "grid", alignItems: "center" }}>
-      <Grid>
+    <GridContainer>
+      <Grid css={{ gridArea: "board" }}>
+        {candies.map((props, index) => (
+          <CandyOverlay key={index} {...props} />
+        ))}
         {decodeBoard(boardDefinition).map((info) => (
           <BoardSquare
             key={`x${info.column} y${info.row}`}
@@ -126,12 +214,10 @@ const Board = ({ boardDefinition }: BoardProps) => {
             row={info.row}
             type={info.type}
             onHover={onHover}
-          >
-            {/* {renderPiece(info, position)} */}
-          </BoardSquare>
+          />
         ))}
       </Grid>
-    </div>
+    </GridContainer>
   )
 }
 

@@ -12,19 +12,12 @@ export type BoardSquareInfo = {
 }
 
 type BoardSquareProps = {
-  children: React.ReactChild
   onHover?: (data: BoardSquareInfo) => void
 } & BoardSquareInfo
 
 const validSpaces: SquareType[] = ["c", "j", "x"]
 
-const BoardSquare = ({
-  column,
-  row,
-  children,
-  type,
-  onHover,
-}: BoardSquareProps) => {
+const BoardSquare = ({ column, row, type, onHover }: BoardSquareProps) => {
   const [{ isDragging, isOver, isValid }, drop] = useDrop({
     accept: Object.values(ItemTypes),
     canDrop: (props, monitor) => {
@@ -62,9 +55,7 @@ const BoardSquare = ({
       type={type}
       row={row}
       column={column}
-    >
-      {children}
-    </Square>
+    />
   )
 }
 
