@@ -89,6 +89,12 @@ export const candyDefinitions = concat(
   return memory
 }, {})
 
-export function getCandyDimensions(candy: CandyDefinition): Dimensions {
-  return candy?.size ?? candyTypeData[candy.type].defaultSize
+export function getCandyDimensions(
+  candy: CandyDefinition | CandyType,
+): Dimensions {
+  if (typeof candy === "string") {
+    return candyTypeData[candy].defaultSize
+  } else {
+    return candy?.size ?? candyTypeData[candy.type].defaultSize
+  }
 }
