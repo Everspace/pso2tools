@@ -22,7 +22,14 @@ const CandySelectionMenu = ({}: CandySelectionMenuProps) => {
         `,
       }}
     >
-      <div css={{ gridArea: "controls", padding: "0.5em" }}>
+      <div
+        css={{
+          gridArea: "controls",
+          padding: "0.5em",
+          boxShadow: "0px 0px 5px black",
+          zIndex: 1,
+        }}
+      >
         <form onSubmit={(e) => e.preventDefault()}>
           <select onChange={(e) => console.log(e.target.value)}>
             <option key={0}>Select a Type</option>
@@ -43,7 +50,9 @@ const CandySelectionMenu = ({}: CandySelectionMenuProps) => {
           padding: "0.5em",
           listStyle: "none",
           overflowY: "scroll",
+          overflowX: "hidden",
           maxHeight: "100%",
+          borderLeft: "2px solid #DDD",
           flexFlow: "column nowrap",
           flexGrow: 1,
         }}
