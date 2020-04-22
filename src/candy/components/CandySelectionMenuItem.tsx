@@ -52,7 +52,7 @@ const CandyBoxSelectionMenuItem = ({
         <CandyIcon type={candy.type} /> {candy.name.na}
       </div>
       <div>Size: {`${width}x${height}`}</div>
-      <div>Stats: {JSON.stringify(candy.stats)}</div>
+      <div>Stats: {JSON.stringify(candy.stats, null, 1)}</div>
       <div>
         Sources:
         <ul>
