@@ -60,6 +60,8 @@ const BoardSquare = ({
           : null,
       ]}
       type={type}
+      row={row}
+      column={column}
     >
       {children}
     </Square>

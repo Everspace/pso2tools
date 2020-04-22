@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/core"
+import { Coordinate } from "./Board"
 
 /**
  * C: Caramel
@@ -18,7 +19,13 @@ type SquareProps = {
   handler?: any
 }
 
-const Square = ({ type = "x", handler, ...props }: SquareProps) => {
+const Square = ({
+  type = "x",
+  row,
+  column,
+  handler,
+  ...props
+}: SquareProps & Coordinate) => {
   return (
     <div
       ref={handler}
@@ -28,6 +35,11 @@ const Square = ({ type = "x", handler, ...props }: SquareProps) => {
         type === "p" ? { backgroundColor: "#333" } : null,
         type === "j" ? { backgroundColor: "#71a8d9" } : null,
         type === "x" ? { backgroundColor: "#EEE" } : null,
+        {
+          zIndex: 0,
+          gridRow: `${row} / ${row + 1}`,
+          gridColumn: `${column} / ${column + 1}`,
+        },
       ]}
     />
   )
