@@ -14,7 +14,12 @@ const CandyBox = () => {
   return (
     <Layout>
       <Board boardDefinition={Synchro} />
-      <div css={{ gridArea: "widgetSelect", backgroundColor: "orange" }}>
+      <div
+        css={{
+          gridArea: "widgetSelect",
+          backgroundColor: "orange",
+        }}
+      >
         <button>Candy</button>
         <button>Stats</button>
         <button>Options</button>
