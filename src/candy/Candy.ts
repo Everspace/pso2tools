@@ -1,6 +1,7 @@
 import yaml from "yaml.macro"
 import { Dimensions, Named, Sized } from "./types"
 import { concat } from "lodash"
+import { CSSObject } from "@emotion/core"
 
 export type CandyType =
   | "cane"
@@ -16,6 +17,7 @@ export type CandyType =
 export interface CandyDefaultData extends Named {
   defaultSize: Dimensions
   icon: string
+  css: CSSObject
 }
 
 export type CandyTypeData = Record<CandyType, CandyDefaultData>
