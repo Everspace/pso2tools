@@ -1,6 +1,6 @@
 declare module "yaml.macro" {
-  const macro = <T = any>(string) => T
-  export = macro
+  function yaml<T = any>(filepath: string): T
+  export default yaml
 }
 
 declare module "*.yaml"
