@@ -3,3 +3,8 @@ package.json
 yarn.lock
 public
 node_modules
+
+# CRA default files
+src/serviceWorker.ts
+src/setupTests.ts
+src/react-app-env.d.ts
