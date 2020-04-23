@@ -1,9 +1,10 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/core"
 import React from "react"
-import Square, { SquareType } from "./Square"
+import Square from "./Square"
 import { useDrop } from "react-dnd"
 import ItemTypes from "./ItemTypes"
+import { SquareType } from "../Pet"
 
 export type BoardSquareInfo = {
   column: number

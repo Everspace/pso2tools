@@ -14,6 +14,13 @@ export type CandyType =
   | "sandwich"
   | "star"
 
+export interface CandyPlacement extends Position {
+  /**
+   * Official English Name of candy
+   */
+  id: string
+}
+
 export interface CandyDefaultData extends Named {
   defaultSize: Dimensions
   icon: string

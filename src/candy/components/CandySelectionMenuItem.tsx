@@ -4,8 +4,8 @@ import { useDrag } from "react-dnd"
 import ItemTypes from "./ItemTypes"
 import { Coordinate } from "./Board"
 import { CandyDefinition, getCandyDimensions, candyTypeData } from "../Candy"
-import CandyIcon from "./CandyIcon"
 import { useMemo } from "react"
+import CandyNameIcon from "./CandyNameIcon"
 
 type CandyBoxSelectionMenuItemProps = {
   position?: Coordinate
@@ -49,7 +49,7 @@ const CandyBoxSelectionMenuItem = ({
           cursor: "move",
         }}
       >
-        <CandyIcon type={candy.type} /> {candy.name.na}
+        <CandyNameIcon candy={candy} />
       </div>
       <div>Size: {`${width}x${height}`}</div>
       <div>Stats: {JSON.stringify(candy.stats, null, 1)}</div>

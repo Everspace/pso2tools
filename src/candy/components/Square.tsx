@@ -1,14 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/core"
 import { Coordinate } from "./Board"
-
-/**
- * C: Caramel
- * P: Paper cube
- * j: Jelly cube
- * x: Empty spot
- */
-export type SquareType = "c" | "p" | "j" | "x"
+import { SquareType } from "../Pet"
 
 type SquareProps = {
   type: SquareType

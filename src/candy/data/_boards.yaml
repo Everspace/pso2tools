@@ -1,0 +1,43 @@
+- name:
+    na: Synchro
+    jp: ~
+    jpna: ~
+  board: |-
+    pjxpxxcj
+    jxxpxxxc
+    xjpxxxxx
+    xpxxcpcx
+    xpxxpppx
+    xjpxcpcx
+    cxxppxxj
+    jcxpxxjp
+  recommendations:
+    - name:
+        na: Easy Start Synchro
+      description:
+        na: >-
+          Easy to acquire, all these things come from titles,
+          Peitro, or just drop on the ground.
+      candy:
+      # Sorting by row then column will be fine for serialization
+      - { row: 1, column: 2, id: "Satisfying Parfait" }
+      - { row: 1, column: 5, id: "Vinculum Spirit Cane" }
+      - { row: 2, column: 1, id: "Sovereign Cane" }
+      - { row: 2, column: 1, id: "Sovereign Cane" }
+      - { row: 2, column: 5, id: "Double Stack Pancakes" }
+      - { row: 2, column: 7, id: "Triple Stack Pancakes" }
+      - { row: 3, column: 2, id: "Stamina Gummy" }
+      - { row: 3, column: 4, id: "Stamina Gummy" }
+      #- { row: 4, column: 3, id: "some Roll" }
+      - { row: 4, column: 5, id: "Stamina Gummy" }
+      - { row: 4, column: 7, id: "Stamina Gummy" }
+      - { row: 4, column: 8, id: "Stamina Spirit Cookie" }
+      #- { row: 6, column: 1, id: "some Roll" }
+      - { row: 6, column: 4, id: "Toughness Sandwich" }
+      - { row: 6, column: 7, id: "Satisfying Parfait" }
+      - { row: 7, column: 3, id: "Stamina Spirit Cookie" }
+      - { row: 7, column: 6, id: "Stamina Spirit Cookie" }
+      - { row: 8, column: 1, id: "Toughness Sandwich" }
+      - { row: 8, column: 5, id: "Stamina Gummy" }
+      - { row: 8, column: 7, id: "Stamina Gummy" }
+
